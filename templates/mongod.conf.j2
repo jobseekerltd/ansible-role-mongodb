@@ -1,7 +1,9 @@
 # {{ ansible_managed }}
 
 auth = {{ mongodb_conf_auth|to_nice_json }}
+{% if mongodb_configure_ip == 'true' %}
 bind_ip = {{ mongodb_conf_bind_ip }}
+{% endif %}
 cpu = {{ mongodb_conf_cpu|to_nice_json }}
 dbpath = {{ mongodb_conf_dbpath }}
 fork = {{ mongodb_conf_fork|to_nice_json }}
